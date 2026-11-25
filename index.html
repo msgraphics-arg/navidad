@@ -511,6 +511,8 @@ $('fUsuario').addEventListener('input', () => {
 });
 $('fUsuario').addEventListener('blur', () => setTimeout(() => $('acBox').classList.add('hidden'), 200));
 
+function nuevoRid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+let ridActual = null;
 $('btnAdd').onclick = async () => {
   if (submitEnCurso) return;
   const ag = agenteSel(), usuario = $('fUsuario').value.trim();
