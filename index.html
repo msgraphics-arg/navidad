@@ -51,6 +51,17 @@ html{background:#12041f}
 .acbox button:last-child{border:0}
 .agopt{display:block;width:100%;margin-top:10px;padding:14px;border-radius:12px;border:1px solid var(--red);background:linear-gradient(180deg,#ff3fb0,#a3106b);color:#fff;font-size:16px;font-weight:800}
 .agopt small{display:block;font-weight:600;font-size:11px;opacity:.9;margin-top:2px}
+.extras{display:flex;flex-direction:column;gap:8px;margin:4px 0 12px}
+.xbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px;border-radius:12px;border:1.5px solid rgba(255,216,77,.5);background:rgba(255,216,77,.06);color:#fff;font-weight:700;font-size:14px}
+.xbtn .chk{flex:none;width:26px;height:26px;border-radius:7px;border:2.5px solid #FFD84D;background:transparent;position:relative}
+.xbtn span{flex:1}
+.xbtn small{font-size:11px;color:#ffb3b3;font-weight:700}
+.xbtn.on{background:linear-gradient(180deg,rgba(255,230,128,.3),rgba(245,184,0,.22));border-color:#FFE680;box-shadow:0 0 14px rgba(255,216,77,.45)}
+.xbtn.on .chk{background:#FFD84D}
+.xbtn.on .chk::after{content:'';position:absolute;left:7px;top:2px;width:7px;height:13px;border:solid #3b0a52;border-width:0 3.5px 3.5px 0;transform:rotate(45deg)}
+.xbtn:disabled{opacity:.45;border-style:dashed}
+.xbtn:disabled .chk{border-color:#888}
+.num.ext{background:linear-gradient(180deg,#FFE680,#F5B800);color:#3b0a52;box-shadow:0 0 10px rgba(255,216,77,.7)}
 .stats{display:flex;gap:10px;margin-bottom:14px}
 .stat{flex:1;background:rgba(22,22,22,.94);border:1px solid rgba(214,31,143,.6);border-radius:12px;padding:10px;text-align:center}
 .stat b{display:block;font-family:'Space Mono',monospace;font-size:24px;color:var(--red-light)}
@@ -205,6 +216,11 @@ h2{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margi
       <label>Monto de la carga ($)</label>
       <input id="fMonto" inputmode="numeric" autocomplete="off" placeholder="Ej: 12000">
       <div class="hint" id="hintMonto"></div>
+      <label>Números extra de regalo (+1 cada uno)</label>
+      <div class="extras">
+        <button type="button" class="xbtn" data-x="nuevo"><i class="chk"></i><span>Usuario nuevo (1 sola vez)</span><small></small></button>
+        <button type="button" class="xbtn" data-x="nosrecomendo"><i class="chk"></i><span>Nos recomendó (trajo a alguien)</span><small></small></button>
+      </div>
       <button class="btn" id="btnAdd">GENERAR TICKET</button>
     </div>
     <div id="resultado"></div>
@@ -407,7 +423,7 @@ const ICON_SHARE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 function tarjetaHTML(c, conShare, idx, hl) {
   return '<div class="ticket-wrap"><div class="ticket"><div class="nm">' + esc(c.usuario) + '<span class="us">@' + esc(c.nombre) + '</span></div>' +
     '<div class="meta">' + esc(c.fecha) + ' · ' + esc(c.hora) + '</div>' +
-    '<div class="nums">' + c.numeros.map(n => '<span class="num' + (hl && String(n) === hl ? ' hit' : '') + '">' + n4(n) + '</span>').join('') + '</div></div>' +
+    '<div class="nums">' + c.numeros.map(n => '<span class="num' + ((c.extras || []).indexOf(n) >= 0 ? ' ext' : '') + (hl && String(n) === hl ? ' hit' : '') + '">' + n4(n) + '</span>').join('') + '</div></div>' +
     (conShare ? '<button class="share" data-i="' + idx + '" title="Compartir" aria-label="Compartir">' + ICON_SHARE + '</button>' : '') + '</div>';
 }
 let listaActual = [];
@@ -441,6 +457,34 @@ $('btnBuscar').onclick = async () => {
 $('qIn').addEventListener('keydown', e => { if (e.key === 'Enter') $('btnBuscar').click(); });
 
 /* ---------- cargar ticket ---------- */
+const EXTRAS = new Set();   // cada uno suma +1 número de regalo: nuevo (una sola vez por usuario), nosrecomendo (todas las veces)
+function pintarExtras() {
+  document.querySelectorAll('.xbtn').forEach(x => x.classList.toggle('on', EXTRAS.has(x.dataset.x)));
+  $('fMonto').dispatchEvent(new Event('input'));
+}
+document.querySelectorAll('.xbtn').forEach(b => b.onclick = () => {
+  if (b.disabled) return;
+  if (EXTRAS.has(b.dataset.x)) EXTRAS.delete(b.dataset.x); else EXTRAS.add(b.dataset.x);
+  pintarExtras();
+});
+function resetExtras() { EXTRAS.clear(); document.querySelectorAll('.xbtn').forEach(x => { x.disabled = false; x.querySelector('small').textContent = ''; }); pintarExtras(); }
+// si ese usuario ya recibió "usuario nuevo", se bloquea (se da una sola vez por usuario)
+let infoSeq = 0;
+async function revisarExtrasUsuario() {
+  const u = $('fUsuario').value.trim(), my = ++infoSeq;
+  const bloqueo = { nuevo: false };
+  if (u.length >= 2) { try { const r = await api({ action: 'usuarioInfo', usuario: u }); if (my !== infoSeq) return; if (r && !r.error) { bloqueo.nuevo = !!r.nuevo; } } catch (e) {} }
+  if (my !== infoSeq) return;
+  ['nuevo'].forEach(k => {
+    const b = document.querySelector('.xbtn[data-x=' + k + ']');
+    b.disabled = bloqueo[k]; b.querySelector('small').textContent = bloqueo[k] ? 'YA LO RECIBIÓ' : '';
+    if (bloqueo[k]) EXTRAS.delete(k);
+  });
+  pintarExtras();
+}
+let infoTimer = null;
+$('fUsuario').addEventListener('input', () => { clearTimeout(infoTimer); infoTimer = setTimeout(revisarExtrasUsuario, 350); });
+$('fUsuario').addEventListener('change', revisarExtrasUsuario);
 let AGENTE = '';   // agente de este dispositivo (se recuerda)
 function agenteSel() { return AGENTES.find(a => a.nombre === AGENTE) || null; }
 function pintarAgente() { $('agNombre').textContent = AGENTE || '–'; $('fMonto').dispatchEvent(new Event('input')); }
@@ -472,8 +516,10 @@ $('fMonto').addEventListener('input', () => {
   const ag = agenteSel();
   if (!ag) { $('hintMonto').textContent = ''; return; }
   if (!ag.monto) { $('hintMonto').textContent = ag.nombre + ' todavía no tiene definido cuánto vale cada número'; return; }
+  const solo = !m && EXTRAS.size === 1 && EXTRAS.has('nosrecomendo');
+  if (solo) { $('hintMonto').textContent = ''; return; }
   const n = ag.fijo ? (m >= ag.monto ? ag.numeros : 0) : Math.floor(m / ag.monto);
-  $('hintMonto').textContent = m ? (n >= 1 ? '→ le corresponden ' + n + (n === 1 ? ' número' : ' números') : 'Con ' + ag.nombre + ' el mínimo es $' + fmt(ag.monto) + ' para recibir un número') : '';
+  $('hintMonto').textContent = m ? (n >= 1 ? '→ le corresponden ' + n + (n === 1 ? ' número' : ' números') + (EXTRAS.size ? ' + ' + EXTRAS.size + (EXTRAS.size === 1 ? ' extra de regalo' : ' extras de regalo') : '') : 'Con ' + ag.nombre + ' el mínimo es $' + fmt(ag.monto) + ' para recibir un número') : '';
 });
 
 /* ---------- autocompletar usuario (desde 2 letras) ---------- */
@@ -490,7 +536,7 @@ function pintarSugerencias(list) {
   box.innerHTML = list.map(u => '<button type="button">' + esc(u) + '</button>').join('');
   box.classList.remove('hidden');
   box.querySelectorAll('button').forEach(b => b.onmousedown = b.ontouchstart = e => {
-    e.preventDefault(); $('fUsuario').value = b.textContent; box.classList.add('hidden'); $('fMonto').focus();
+    e.preventDefault(); $('fUsuario').value = b.textContent; box.classList.add('hidden'); revisarExtrasUsuario(); $('fMonto').focus();
   });
 }
 $('fUsuario').addEventListener('input', () => {
@@ -520,20 +566,21 @@ $('btnAdd').onclick = async () => {
   if (!usuario) return toast('Completá el usuario', true);
   if (!ag) return toast('Elegí un agente', true);
   if (!ag.monto) return toast(ag.nombre + ' todavía no tiene definido cuánto vale cada número', true);
+  const solo = !monto && EXTRAS.size === 1 && EXTRAS.has('nosrecomendo');   // regalo suelto, sin carga
   const n = ag.fijo ? (monto >= ag.monto ? ag.numeros : 0) : Math.floor(monto / ag.monto);
-  if (n < 1) return toast('Con ' + ag.nombre + ' el monto mínimo es $' + fmt(ag.monto), true);
+  if (!solo && n < 1) return toast('Con ' + ag.nombre + ' el monto mínimo es $' + fmt(ag.monto), true);
   if (!ridActual) ridActual = nuevoRid();   // si hay reintento tras un error de red, se reusa y no duplica
   submitEnCurso = true;
   const btn = $('btnAdd');
   btn.disabled = true; btn.textContent = 'GENERANDO…';
   try {
-    const r = await api({ action: 'add', agente: ag.nombre, usuario, monto, rid: ridActual });
+    const r = await api({ action: 'add', agente: ag.nombre, usuario, monto, extra: [...EXTRAS].join(','), rid: ridActual });
     if (r.error) { toast(r.error, true); if (r.error === 'clave') mostrarLogin('Clave incorrecta'); return; }
     ridActual = null;
     ultimoResultado = r;
     $('resultado').innerHTML = tarjetaHTML(r, true, 0);
     $('resultado').querySelector('.share').onclick = () => compartir(ultimoResultado);
-    recordarUsuario(usuario); $('fUsuario').value = ''; $('fMonto').value = ''; $('hintMonto').textContent = '';
+    recordarUsuario(usuario); resetExtras(); $('fUsuario').value = ''; $('fMonto').value = ''; $('hintMonto').textContent = '';
     cargarStats();
     toast('✅ Ticket generado: ' + r.numeros.length + (r.numeros.length === 1 ? ' número' : ' números'));
   } catch (e) {
@@ -622,10 +669,11 @@ function dibujarTicket(c) {
   filas.forEach(f => {
     const tot = f.length * CW + (f.length - 1) * GAP; let x = (W - tot) / 2;
     f.forEach(v => {
-      const bg = ctx.createLinearGradient(0, y, 0, y + CH); bg.addColorStop(0, '#ff3fb0'); bg.addColorStop(1, '#a3106b');
+      const ex = (c.extras || []).indexOf(v) >= 0;
+      const bg = ctx.createLinearGradient(0, y, 0, y + CH); bg.addColorStop(0, ex ? '#FFE680' : '#ff3fb0'); bg.addColorStop(1, ex ? '#F5B800' : '#a3106b');
       ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(x, y, CW, CH, 10); ctx.fill();
       ctx.fillStyle = 'rgba(255,255,255,.2)'; ctx.beginPath(); ctx.roundRect(x + 3, y + 3, CW - 6, CH / 2 - 3, 8); ctx.fill();
-      ctx.fillStyle = '#fff'; ctx.font = '700 ' + CFN + 'px ' + MONO; ctx.textBaseline = 'middle'; ctx.fillText(n4(v), x + CW / 2, y + CH / 2 + 2); ctx.textBaseline = 'alphabetic';
+      ctx.fillStyle = ex ? '#3b0a52' : '#fff'; ctx.font = '700 ' + CFN + 'px ' + MONO; ctx.textBaseline = 'middle'; ctx.fillText(n4(v), x + CW / 2, y + CH / 2 + 2); ctx.textBaseline = 'alphabetic';
       x += CW + GAP;
     });
     y += CH + VGAP;
