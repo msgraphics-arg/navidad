@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="theme-color" content="#12041f">
+<title>Sorteo Navideño · Red Mayu</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Mountains+of+Christmas:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#12041f;--card:#1f0a33;--line:#4a2a70;--red:#D61F8F;--red-light:#FF6AC8;--white:#F5F5F5;--gray:#9a9a9a;--green:#C4B5FD;--gold:#f5c542}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{color:var(--white);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;
+  background:radial-gradient(ellipse at 50% -10%,#5a136e 0%,transparent 60%),radial-gradient(ellipse at 50% 110%,#2b0a52 0%,transparent 55%),#12041f}
+html{background:#12041f}
+#snow{position:fixed;inset:0;pointer-events:none;z-index:1}
+.page{position:relative;z-index:3;max-width:560px;margin:0 auto;padding:6px 14px 150px}
+.brand{text-align:center;color:var(--red-light);font-weight:800;letter-spacing:4px;font-size:12px}
+.sub{text-align:center;color:var(--gray);font-size:12px;margin:2px 0 12px}
+.cdcard{position:relative;border:1px solid var(--red);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 0 26px rgba(214,31,143,.3);
+  background:linear-gradient(rgba(24,6,44,.52),rgba(24,6,44,.52)),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22 viewBox=%220 0 200 200%22%3E%3Cg transform=%22translate%288,6%29 scale%280.95%29%22%3E%3Cpolygon points=%2220.0,3.0 24.4,14.9 37.1,15.4 27.1,23.3 30.6,35.6 20.0,28.5 9.4,35.6 12.9,23.3 2.9,15.4 15.6,14.9%22 fill=%22%23f5c542%22 stroke=%22%23fff3b0%22 stroke-width=%221.2%22 stroke-linejoin=%22round%22/%3E%3C/g%3E%3Cg transform=%22translate%2878,4%29 scale%280.95%29%22%3E%3Cpolygon points=%2220,3 32,18 8,18%22 fill=%22%232bb35f%22/%3E%3Cpolygon points=%2220,12 35,28 5,28%22 fill=%22%231f9a55%22/%3E%3Cpolygon points=%2220,22 38,38 2,38%22 fill=%22%23178045%22/%3E%3Crect x=%2217%22 y=%2238%22 width=%226%22 height=%225%22 fill=%22%238a5a2b%22/%3E%3Ccircle cx=%2216%22 cy=%2226%22 r=%222.2%22 fill=%22%23ff3b4e%22/%3E%3Ccircle cx=%2225%22 cy=%2234%22 r=%222.2%22 fill=%22%23f5c542%22/%3E%3Ccircle cx=%2220%22 cy=%2214%22 r=%221.8%22 fill=%22%23fff%22/%3E%3C/g%3E%3Cg transform=%22translate%28142,6%29 rotate%288 20 20%29 scale%280.95%29%22%3E%3Cpath d=%22M12,40 L12,14 Q12,3 22,3 Q32,3 32,13%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%227%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M12,40 L12,14 Q12,3 22,3 Q32,3 32,13%22 fill=%22none%22 stroke=%22%23e01a35%22 stroke-width=%227%22 stroke-linecap=%22round%22 stroke-dasharray=%225 6%22/%3E%3C/g%3E%3Cg transform=%22translate%2838,66%29 scale%280.95%29%22 stroke=%22%23fff%22 stroke-width=%222.4%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cg transform=%22rotate%280 20 20%29%22%3E%3Cline x1=%2220%22 y1=%223%22 x2=%2220%22 y2=%2237%22 /%3E%3Cpolyline points=%2214,9 20,15 26,9%22/%3E%3Cpolyline points=%2215,3 20,8 25,3%22 opacity=%220%22/%3E%3C/g%3E%3Cg transform=%22rotate%2860 20 20%29%22%3E%3Cline x1=%2220%22 y1=%223%22 x2=%2220%22 y2=%2237%22 /%3E%3Cpolyline points=%2214,9 20,15 26,9%22/%3E%3Cpolyline points=%2215,3 20,8 25,3%22 opacity=%220%22/%3E%3C/g%3E%3Cg transform=%22rotate%28120 20 20%29%22%3E%3Cline x1=%2220%22 y1=%223%22 x2=%2220%22 y2=%2237%22 /%3E%3Cpolyline points=%2214,9 20,15 26,9%22/%3E%3Cpolyline points=%2215,3 20,8 25,3%22 opacity=%220%22/%3E%3C/g%3E%3C/g%3E%3Cg transform=%22translate%28112,70%29 scale%280.95%29%22%3E%3Crect x=%2216%22 y=%222%22 width=%228%22 height=%226%22 rx=%221%22 fill=%22%23f5c542%22/%3E%3Ccircle cx=%2220%22 cy=%2224%22 r=%2215%22 fill=%22%23e01a35%22/%3E%3Cpath d=%22M6,22 Q20,32 34,22%22 fill=%22none%22 stroke=%22%23f5c542%22 stroke-width=%223%22/%3E%3Cellipse cx=%2214%22 cy=%2217%22 rx=%224%22 ry=%222.4%22 transform=%22rotate%28-35 14 17%29%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3C/g%3E%3Cg transform=%22translate%286,134%29 scale%280.95%29%22%3E%3Crect x=%225%22 y=%2216%22 width=%2230%22 height=%2222%22 rx=%222%22 fill=%22%23e01a35%22/%3E%3Crect x=%223%22 y=%2211%22 width=%2234%22 height=%228%22 rx=%222%22 fill=%22%23e01a35%22 stroke=%22%23fff%22 stroke-opacity=%22.35%22/%3E%3Crect x=%2218%22 y=%2211%22 width=%225%22 height=%2227%22 fill=%22%23fff%22/%3E%3Cpath d=%22M20,11 C8,0 6,10 20,11 C34,10 32,0 20,11Z%22 fill=%22%23fff%22/%3E%3C/g%3E%3Cg transform=%22translate%2876,128%29 scale%281%29%22%3E%3Ccircle cx=%2220%22 cy=%2230%22 r=%2210%22 fill=%22%23fff%22/%3E%3Ccircle cx=%2220%22 cy=%2214%22 r=%227.5%22 fill=%22%23fff%22/%3E%3Crect x=%2213%22 y=%223%22 width=%2214%22 height=%224%22 fill=%22%23222%22/%3E%3Crect x=%2216%22 y=%22-3%22 width=%228%22 height=%227%22 fill=%22%23222%22/%3E%3Cpolygon points=%2220,14 28,16 20,17%22 fill=%22%23ff8a1f%22/%3E%3Ccircle cx=%2217.5%22 cy=%2212%22 r=%221%22 fill=%22%23222%22/%3E%3Ccircle cx=%2222.5%22 cy=%2212%22 r=%221%22 fill=%22%23222%22/%3E%3Crect x=%2212%22 y=%2220%22 width=%2216%22 height=%223.5%22 rx=%221.5%22 fill=%22%23e01a35%22/%3E%3Ccircle cx=%2220%22 cy=%2229%22 r=%221.2%22 fill=%22%23222%22/%3E%3Ccircle cx=%2220%22 cy=%2234%22 r=%221.2%22 fill=%22%23222%22/%3E%3C/g%3E%3Cg transform=%22translate%28150,134%29 scale%280.7%29%22%3E%3Cpolygon points=%2220.0,3.0 24.4,14.9 37.1,15.4 27.1,23.3 30.6,35.6 20.0,28.5 9.4,35.6 12.9,23.3 2.9,15.4 15.6,14.9%22 fill=%22%23ffffff%22 stroke=%22%23fff3b0%22 stroke-width=%221.2%22 stroke-linejoin=%22round%22/%3E%3C/g%3E%3Cg transform=%22translate%28152,164%29 scale%280.55%29%22%3E%3Crect x=%2216%22 y=%222%22 width=%228%22 height=%226%22 rx=%221%22 fill=%22%23f5c542%22/%3E%3Ccircle cx=%2220%22 cy=%2224%22 r=%2215%22 fill=%22%231f9a55%22/%3E%3Cpath d=%22M6,22 Q20,32 34,22%22 fill=%22none%22 stroke=%22%23f5c542%22 stroke-width=%223%22/%3E%3Cellipse cx=%2214%22 cy=%2217%22 rx=%224%22 ry=%222.4%22 transform=%22rotate%28-35 14 17%29%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3C/g%3E%3Cg transform=%22translate%28168,72%29 scale%280.55%29%22 stroke=%22%23fff%22 stroke-width=%222.4%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cg transform=%22rotate%280 20 20%29%22%3E%3Cline x1=%2220%22 y1=%223%22 x2=%2220%22 y2=%2237%22 /%3E%3Cpolyline points=%2214,9 20,15 26,9%22/%3E%3Cpolyline points=%2215,3 20,8 25,3%22 opacity=%220%22/%3E%3C/g%3E%3Cg transform=%22rotate%2860 20 20%29%22%3E%3Cline x1=%2220%22 y1=%223%22 x2=%2220%22 y2=%2237%22 /%3E%3Cpolyline points=%2214,9 20,15 26,9%22/%3E%3Cpolyline points=%2215,3 20,8 25,3%22 opacity=%220%22/%3E%3C/g%3E%3Cg transform=%22rotate%28120 20 20%29%22%3E%3Cline x1=%2220%22 y1=%223%22 x2=%2220%22 y2=%2237%22 /%3E%3Cpolyline points=%2214,9 20,15 26,9%22/%3E%3Cpolyline points=%2215,3 20,8 25,3%22 opacity=%220%22/%3E%3C/g%3E%3C/g%3E%3Ccircle cx=%2275%22 cy=%2222%22 r=%222%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%22150%22 cy=%2262%22 r=%222.4%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%2218%22 cy=%2288%22 r=%222%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%2298%22 cy=%22128%22 r=%222.2%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%22182%22 cy=%22128%22 r=%222%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%22130%22 cy=%22190%22 r=%222%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%2252%22 cy=%22128%22 r=%221.6%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3Ccircle cx=%228%22 cy=%22128%22 r=%221.6%22 fill=%22%23fff%22 opacity=%22.7%22/%3E%3C/svg%3E");background-size:auto,96px 96px}
+.cdcard h2,.cdcard .when{text-shadow:0 2px 6px #000,0 0 12px rgba(0,0,0,.8)}
+.cdcard h2{color:#fff;text-align:center}
+
+.card{border-radius:18px;padding:18px;margin-bottom:14px;position:relative}
+.card.premios{border:2px solid #F5C542;box-shadow:0 0 34px rgba(255,63,176,.45),inset 0 0 40px rgba(124,58,237,.35);padding:22px 8px 18px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(80,12,120,.42),rgba(190,24,120,.28)),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22190%22 height=%22190%22 viewBox=%220 0 190 190%22%3E%3Cg transform=%22translate%288%2C10%29 scale%280.9%29%22%3E%3Crect x=%220%22 y=%2214%22 width=%2240%22 height=%2228%22 rx=%223%22 fill=%22%23ec4899%22/%3E%3Crect x=%22-3%22 y=%228%22 width=%2246%22 height=%229%22 rx=%223%22 fill=%22%23f9a8d4%22/%3E%3Crect x=%2217%22 y=%228%22 width=%226%22 height=%2234%22 fill=%22%23fde047%22/%3E%3Cpath d=%22M20 8C10 -4 2 4 12 8M20 8C30 -4 38 4 28 8%22 fill=%22none%22 stroke=%22%23fde047%22 stroke-width=%223.5%22 stroke-linecap=%22round%22/%3E%3C/g%3E%3Cg transform=%22translate%28104%2C6%29 scale%280.75%29%22%3E%3Crect x=%220%22 y=%2214%22 width=%2240%22 height=%2228%22 rx=%223%22 fill=%22%237c3aed%22/%3E%3Crect x=%22-3%22 y=%228%22 width=%2246%22 height=%229%22 rx=%223%22 fill=%22%23c4b5fd%22/%3E%3Crect x=%2217%22 y=%228%22 width=%226%22 height=%2234%22 fill=%22%23f9a8d4%22/%3E%3Cpath d=%22M20 8C10 -4 2 4 12 8M20 8C30 -4 38 4 28 8%22 fill=%22none%22 stroke=%22%23f9a8d4%22 stroke-width=%223.5%22 stroke-linecap=%22round%22/%3E%3C/g%3E%3Cg transform=%22translate%2860%2C92%29 scale%280.85%29%22%3E%3Crect x=%220%22 y=%2214%22 width=%2240%22 height=%2228%22 rx=%223%22 fill=%22%23facc15%22/%3E%3Crect x=%22-3%22 y=%228%22 width=%2246%22 height=%229%22 rx=%223%22 fill=%22%23fde68a%22/%3E%3Crect x=%2217%22 y=%228%22 width=%226%22 height=%2234%22 fill=%22%23d946ef%22/%3E%3Cpath d=%22M20 8C10 -4 2 4 12 8M20 8C30 -4 38 4 28 8%22 fill=%22none%22 stroke=%22%23d946ef%22 stroke-width=%223.5%22 stroke-linecap=%22round%22/%3E%3C/g%3E%3Cg transform=%22translate%28138%2C100%29 scale%280.8%29%22%3E%3Crect x=%220%22 y=%2214%22 width=%2240%22 height=%2228%22 rx=%223%22 fill=%22%23d946ef%22/%3E%3Crect x=%22-3%22 y=%228%22 width=%2246%22 height=%229%22 rx=%223%22 fill=%22%23f0abfc%22/%3E%3Crect x=%2217%22 y=%228%22 width=%226%22 height=%2234%22 fill=%22%23fde047%22/%3E%3Cpath d=%22M20 8C10 -4 2 4 12 8M20 8C30 -4 38 4 28 8%22 fill=%22none%22 stroke=%22%23fde047%22 stroke-width=%223.5%22 stroke-linecap=%22round%22/%3E%3C/g%3E%3Cg transform=%22translate%284%2C118%29 scale%280.7%29%22%3E%3Crect x=%220%22 y=%2214%22 width=%2240%22 height=%2228%22 rx=%223%22 fill=%22%23a78bfa%22/%3E%3Crect x=%22-3%22 y=%228%22 width=%2246%22 height=%229%22 rx=%223%22 fill=%22%23ddd6fe%22/%3E%3Crect x=%2217%22 y=%228%22 width=%226%22 height=%2234%22 fill=%22%23ec4899%22/%3E%3Cpath d=%22M20 8C10 -4 2 4 12 8M20 8C30 -4 38 4 28 8%22 fill=%22none%22 stroke=%22%23ec4899%22 stroke-width=%223.5%22 stroke-linecap=%22round%22/%3E%3C/g%3E%3Ccircle cx=%2292%22 cy=%2260%22 r=%223%22 fill=%22%23fde047%22/%3E%3Ccircle cx=%22170%22 cy=%2270%22 r=%222.5%22 fill=%22%23fff%22/%3E%3Ccircle cx=%2240%22 cy=%2296%22 r=%222.5%22 fill=%22%23f9a8d4%22/%3E%3Ccircle cx=%22130%22 cy=%22172%22 r=%223%22 fill=%22%23c4b5fd%22/%3E%3C/svg%3E");background-size:auto,150px}
+.pr-top{text-align:center}
+.pr-top small{display:block;font-family:'Mountains of Christmas',cursive;font-weight:700;font-size:clamp(30px,9.5vw,46px);line-height:1;color:#FFD84D;text-shadow:0 0 14px rgba(255,216,77,.8),0 0 34px rgba(255,216,77,.45),0 3px 0 #8a4b00,0 6px 12px #000}
+.amt{position:relative;display:inline-block;margin:10px 0 18px;max-width:100%}
+.amt b{display:block;font-family:'Mountains of Christmas',cursive;font-size:84px;line-height:1;white-space:nowrap;color:#fff;-webkit-text-stroke:7px #4a0f66;paint-order:stroke fill;text-shadow:0 5px 0 #c01886,0 8px 0 #3b0a52,0 14px 18px rgba(0,0,0,.75)}
+.sp{position:absolute;font-style:normal;color:#FFD84D;text-shadow:0 0 10px #FF3FB0,0 0 20px #FF3FB0,0 2px 3px #000;line-height:1;opacity:0;animation:twk 2.4s ease-in-out infinite;pointer-events:none}
+.sp.s1{left:-4%;top:-6%;font-size:22px}.sp.s2{left:22%;top:-18%;font-size:14px;animation-delay:.6s}.sp.s3{left:52%;top:-14%;font-size:18px;animation-delay:1.2s}
+.sp.s4{right:-4%;top:-2%;font-size:24px;animation-delay:.3s}.sp.s5{right:16%;bottom:-12%;font-size:16px;animation-delay:1.5s}.sp.s6{left:8%;bottom:-10%;font-size:18px;animation-delay:.9s}
+@keyframes twk{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(25deg)}}
+@media (prefers-reduced-motion:reduce){.sp{animation:none;opacity:.9}}
+.pzs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pz{border-radius:16px;padding:12px 4px 11px;text-align:center;border:1.5px solid rgba(255,255,255,.75);background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(124,58,237,.55));box-shadow:0 6px 16px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.5);backdrop-filter:blur(2px)}
+.pz i{display:block;font-style:normal;font-size:clamp(10px,3vw,12px);font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;text-shadow:0 1px 4px #000}
+.pz b{display:block;margin-top:4px;font-family:'Space Mono',monospace;font-size:clamp(15px,4.8vw,22px);color:#fff;text-shadow:0 2px 6px #000}
+.pz.p1{background:linear-gradient(180deg,rgba(253,224,71,.55),rgba(217,70,239,.6));border-color:#F5C542}
+.pz.p1 b{color:#fff7c2}
+.agchip{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 6px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,216,77,.6);background:rgba(245,197,66,.1);font-size:13px}
+.agchip b{color:#FFD84D;font-size:15px}
+.agchip button{background:transparent;border:1px solid var(--line);color:#fff;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:800;letter-spacing:.5px}
+.acwrap{position:relative}
+.acbox{position:absolute;left:0;right:0;top:100%;margin-top:4px;z-index:20;background:#2a1046;border:1px solid var(--red);border-radius:10px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.6)}
+.acbox button{display:block;width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);color:#fff;padding:12px;font-size:15px}
+.acbox button:last-child{border:0}
+.agopt{display:block;width:100%;margin-top:10px;padding:14px;border-radius:12px;border:1px solid var(--red);background:linear-gradient(180deg,#ff3fb0,#a3106b);color:#fff;font-size:16px;font-weight:800}
+.agopt small{display:block;font-weight:600;font-size:11px;opacity:.9;margin-top:2px}
+.stats{display:flex;gap:10px;margin-bottom:14px}
+.stat{flex:1;background:rgba(22,22,22,.94);border:1px solid rgba(214,31,143,.6);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-family:'Space Mono',monospace;font-size:24px;color:var(--red-light)}
+.stat small{color:var(--gray);font-size:11px}
+.panel{background:rgba(22,22,22,.94);border:1px solid rgba(214,31,143,.45);border-radius:14px;padding:14px;margin-bottom:14px}
+.panel h2{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
+label{display:block;font-size:12px;color:var(--gray);margin:8px 0 4px}
+input,select{width:100%;background:#150626;border:1px solid var(--line);color:var(--white);padding:12px;border-radius:10px;font-size:16px;font-family:inherit}
+input:focus,select:focus{outline:none;border-color:var(--red)}
+.btn{width:100%;margin-top:12px;background:var(--red);color:#fff;border:0;border-radius:10px;padding:14px;font-size:15px;font-weight:800;letter-spacing:.5px}
+.btn:disabled{opacity:.5}
+.btn.sec{background:#2f1550;border:1px solid var(--line)}
+.hint{font-size:12px;color:var(--gold);margin-top:6px;min-height:16px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tab{flex:1;padding:10px 4px;background:#2a1046;border:1px solid var(--line);color:var(--gray);border-radius:10px;font-size:12px;font-weight:700}
+.tab.on{background:var(--red);color:#fff;border-color:var(--red)}
+.hidden{display:none!important}
+.ticket-wrap{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.ticket{flex:1;min-width:0;background:linear-gradient(135deg,#2a1046,#1a0830);border:1px solid rgba(214,31,143,.7);border-left:4px solid var(--red);border-radius:10px;padding:8px 10px}
+.ticket .nm{font-weight:800;font-size:14px;line-height:1.25;word-break:break-word}
+.ticket .us{color:var(--red-light);font-family:'Space Mono',monospace;font-size:11px;font-weight:700;margin-left:6px;white-space:nowrap}
+.ticket .meta{color:var(--gray);font-size:10.5px;margin-top:2px}
+.nums{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.num{background:linear-gradient(180deg,#ff3fb0,#a3106b);color:#fff;font-family:'Space Mono',monospace;font-weight:700;padding:3px 7px;border-radius:6px;font-size:13px}
+.num.hit{outline:2px solid var(--gold);outline-offset:1px;box-shadow:0 0 10px rgba(245,197,66,.7)}
+.share{width:38px;height:38px;flex:none;border-radius:50%;border:1px solid rgba(214,31,143,.6);background:#2a1046;color:#fff;display:flex;align-items:center;justify-content:center;padding:0}
+.share svg{width:18px;height:18px}
+.share:active{background:var(--red)}
+.empty{color:var(--gray);text-align:center;font-size:13px;padding:16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#2f1550;border:1px solid var(--red);padding:10px 16px;border-radius:10px;font-size:13px;z-index:99;max-width:90%}
+.toast.err{background:#5a0f45}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:50;padding:18px}
+.mbox{background:var(--card);border:2px solid var(--red);border-radius:18px;padding:22px;width:100%;max-width:420px;text-align:center}
+.mbox .pr{color:var(--gold);font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:14px}
+.mbox .big{font-family:'Space Mono',monospace;font-size:56px;color:var(--red-light);font-weight:700;margin:8px 0}
+.mbox .who{font-size:18px;font-weight:800}
+.mbox .un{color:var(--gray);font-family:'Space Mono',monospace}
+.win{display:flex;justify-content:space-between;gap:8px;padding:10px;border-bottom:1px solid var(--line);font-size:14px}
+.win b{color:var(--gold)}
+.win.sup b{color:var(--gray)}
+.row{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--line);font-size:14px}
+/* guirnalda */
+.garland{position:relative;z-index:3;height:74px;overflow:hidden}
+.garland svg{position:absolute;left:0;top:0;width:100%;height:60px}
+.bulbs{position:absolute;left:0;right:0;top:0;height:74px;display:flex;justify-content:space-around;padding:0 2px}
+.bulbs i{display:block;width:14px;height:22px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:currentColor;box-shadow:0 0 14px 3px currentColor;animation:tw 1.6s infinite alternate;margin-top:18px;position:relative}
+.bulbs i::before{content:"";position:absolute;top:-6px;left:3px;width:8px;height:7px;background:#333;border-radius:2px}
+.bulbs i:nth-child(odd){margin-top:34px}
+.bulbs i:nth-child(4n+1){color:#ff3fb0}.bulbs i:nth-child(4n+2){color:#ffd24d;animation-delay:.4s}.bulbs i:nth-child(4n+3){color:#F5C542;animation-delay:.8s}.bulbs i:nth-child(4n){color:#fff;animation-delay:1.2s}
+@keyframes tw{from{opacity:.35;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+
+.title{margin:6px 0 8px;text-align:center}
+h1{text-align:center;font-family:'Mountains of Christmas','Space Mono',cursive;line-height:.9;text-shadow:0 0 26px rgba(214,31,143,.55)}
+h1 .s1{display:block;font-size:clamp(30px,8.5vw,46px);color:#F5C542;letter-spacing:3px;text-shadow:0 0 16px rgba(245,197,66,.45)}
+h1 .s2{display:block;white-space:nowrap;font-size:clamp(60px,19vw,118px);color:#fff;margin-top:2px;text-shadow:0 0 28px rgba(255,255,255,.35),0 4px 0 rgba(214,31,143,.55)}
+/* cronómetro: 4 cuadros grandes con patrón navideño translúcido */
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gift{position:relative;text-align:center;padding:22px 2px 14px;border-radius:16px;border:2px solid var(--red-light);overflow:hidden;
+  background:linear-gradient(180deg,rgba(14,20,16,.97),rgba(4,6,5,.98));
+  box-shadow:0 6px 16px rgba(0,0,0,.55),0 0 14px rgba(255,59,78,.3),inset 0 1px 0 rgba(255,255,255,.12)}
+.gift b{display:block;font-family:'Space Mono',monospace;font-size:clamp(34px,11.5vw,64px);line-height:1;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.35),0 3px 8px rgba(0,0,0,.9)}
+.gift small{display:block;margin-top:9px;font-size:clamp(9px,2.8vw,12px);font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;text-shadow:0 2px 5px #000}
+.when{text-shadow:0 2px 6px #000,0 0 12px rgba(0,0,0,.8)}
+.counter{text-align:center}
+.counter b{display:block;font-family:'Space Mono',monospace;font-size:38px;color:var(--red-light)}
+.counter small{color:var(--gray);font-size:12px}
+h2{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:12px;text-align:center}
+.card.consulta h2{color:#F5C542}
+
+/* cronómetro: 4 cuadros grandes con patrón navideño translúcido */
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gift{position:relative;text-align:center;padding:22px 2px 14px;border-radius:16px;border:2px solid var(--red-light);overflow:hidden;
+  background:linear-gradient(180deg,rgba(14,20,16,.97),rgba(4,6,5,.98));
+  box-shadow:0 6px 16px rgba(0,0,0,.55),0 0 14px rgba(255,59,78,.3),inset 0 1px 0 rgba(255,255,255,.12)}
+.gift b{display:block;font-family:'Space Mono',monospace;font-size:clamp(34px,11.5vw,64px);line-height:1;color:#fff;text-shadow:0 0 14px rgba(255,255,255,.35),0 3px 8px rgba(0,0,0,.9)}
+.gift small{display:block;margin-top:9px;font-size:clamp(9px,2.8vw,12px);font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;text-shadow:0 2px 5px #000}
+.when{text-align:center;color:#fff;font-weight:800;font-size:14px;margin-top:14px}
+.done{text-align:center;font-family:'Mountains of Christmas',cursive;font-size:30px;color:var(--gold)}
+
+/* pinos al pie */
+.forest{position:fixed;left:0;right:0;bottom:0;height:120px;z-index:2;pointer-events:none}
+.forest svg{width:100%;height:100%;display:block}
+</style>
+</head>
+<body>
+<canvas id="snow"></canvas>
+<div class="garland">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,6 Q75,56 150,6 T300,6 T450,6 T600,6 T750,6 T900,6 T1050,6 T1200,6" fill="none" stroke="#8b5cf6" stroke-width="7"/><path d="M0,6 Q75,56 150,6 T300,6 T450,6 T600,6 T750,6 T900,6 T1050,6 T1200,6" fill="none" stroke="#1f8a4c" stroke-width="3" stroke-dasharray="2 5"/></svg>
+  <div class="bulbs" id="bulbs"></div>
+</div>
+
+<div class="page">
+
+<!-- LOGIN AGENTES -->
+<div id="login" class="hidden">
+  <div class="brand">RED MAYU</div>
+  <div class="title"><h1><span class="s1">Sorteo</span><span class="s2">Navideño</span></h1></div>
+  <p class="sub">Acceso de agentes</p>
+  <div class="panel">
+    <label>Clave de agentes</label>
+    <input id="claveIn" type="password" autocomplete="off" autocapitalize="characters" placeholder="Clave">
+    <div class="hint" id="loginMsg"></div>
+    <button class="btn" id="btnLogin">ENTRAR</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+  <div class="brand">RED MAYU</div>
+  <div class="title"><h1><span class="s1">Sorteo</span><span class="s2">Navideño</span></h1></div>
+  <p class="sub" id="subtitulo"></p>
+
+  <div class="card premios">
+    <div class="pr-top"><small>Participá por</small><div class="amt"><b>$500.000</b><i class="sp s1">✦</i><i class="sp s2">✦</i><i class="sp s3">✦</i><i class="sp s4">✦</i><i class="sp s5">✦</i><i class="sp s6">✦</i></div></div>
+    <div class="pzs" id="prList">
+      <div class="pz p1"><i>1° premio</i><b>$250.000</b></div>
+      <div class="pz"><i>2° premio</i><b>$150.000</b></div>
+      <div class="pz"><i>3° premio</i><b>$100.000</b></div>
+    </div>
+  </div>
+
+  <div class="cdcard">
+    <h2 id="cdTitulo">⏳ Cuenta regresiva para el sorteo</h2>
+    <div class="cd" id="cd">
+      <div class="gift"><b id="cdD">--</b><small>Días</small></div>
+      <div class="gift"><b id="cdH">--</b><small>Horas</small></div>
+      <div class="gift"><b id="cdM">--</b><small>Minutos</small></div>
+      <div class="gift"><b id="cdS">--</b><small>Segundos</small></div>
+    </div>
+    <div class="when" id="when">🎅 24 de diciembre · 18:00 hs</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b id="sTotal">–</b><small>números entregados en total</small></div>
+    <div class="stat"><b id="sHoy">–</b><small>números entregados hoy</small></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" data-t="cargar">CARGAR</button>
+    <button class="tab" data-t="lista">ÚLTIMOS</button>
+    <button class="tab" data-t="buscar">BUSCAR</button>
+    <button class="tab" data-t="sorteo">🔒 ADMIN</button>
+  </div>
+
+  <!-- CARGAR -->
+  <div id="t-cargar">
+    <div class="panel">
+      <h2>Nueva carga</h2>
+      <label>Nombre de usuario</label>
+      <div class="acwrap"><input id="fUsuario" autocomplete="off" autocapitalize="none" placeholder="Ej: mariaperez23"><div id="acBox" class="acbox hidden"></div></div>
+      <div class="agchip"><span>Cargando como <b id="agNombre">–</b></span><button type="button" id="btnCambiarAg">CAMBIAR</button></div>
+      <label>Monto de la carga ($)</label>
+      <input id="fMonto" inputmode="numeric" autocomplete="off" placeholder="Ej: 12000">
+      <div class="hint" id="hintMonto"></div>
+      <button class="btn" id="btnAdd">GENERAR TICKET</button>
+    </div>
+    <div id="resultado"></div>
+  </div>
+
+  <!-- ÚLTIMOS -->
+  <div id="t-lista" class="hidden">
+    <div class="panel"><h2>Últimas cargas</h2><div id="listaBox"><div class="empty">Cargando…</div></div></div>
+  </div>
+
+  <!-- BUSCAR -->
+  <div id="t-buscar" class="hidden">
+    <div class="panel">
+      <h2>Buscar por usuario, agente o número</h2>
+      <input id="qIn" autocomplete="off" autocapitalize="none" placeholder="Buscar…">
+      <button class="btn" id="btnBuscar">BUSCAR</button>
+    </div>
+    <div id="buscarBox"></div>
+  </div>
+
+  <!-- SORTEO -->
+  <div id="t-sorteo" class="hidden">
+    <div class="panel" id="sorteoLock">
+      <h2>Panel de administración</h2>
+      <label>Clave de administración</label>
+      <input id="claveSorteoIn" type="password" autocomplete="off" autocapitalize="characters" placeholder="Clave de administración">
+      <div class="hint" id="sorteoMsg"></div>
+      <button class="btn" id="btnSorteoEntrar">ENTRAR</button>
+    </div>
+    <div id="sorteoPanel" class="hidden">
+      <div class="panel">
+        <h2>Sorteo en vivo</h2>
+        <div id="winList"></div>
+        <button class="btn" id="btnSortear">SORTEAR</button>
+        <button class="btn sec" id="btnPublicar">📢 Publicar ganadores en la web</button>
+        <div class="hint" id="pubEstado"></div>
+      </div>
+      <button class="btn sec" id="btnSalirAdmin">🔒 Cerrar panel de administración</button>
+    </div>
+  </div>
+  <button class="btn sec" id="btnSalir" style="margin-top:24px;font-size:12px;padding:10px">Cerrar sesión de este dispositivo</button>
+</div>
+
+</div>
+<div class="forest">
+<svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice">
+  <defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a1d96"/><stop offset="1" stop-color="#1e0841"/></linearGradient></defs>
+  <g fill="url(#pg)">
+    <path d="M40,120 L40,100 L10,100 L45,60 L25,60 L58,22 L90,60 L70,60 L105,100 L75,100 L75,120Z"/>
+    <path d="M230,120 L230,104 L205,104 L238,70 L220,70 L250,36 L280,70 L262,70 L295,104 L270,104 L270,120Z"/>
+    <path d="M420,120 L420,98 L390,98 L425,58 L405,58 L440,16 L475,58 L455,58 L490,98 L460,98 L460,120Z"/>
+    <path d="M640,120 L640,104 L615,104 L648,70 L630,70 L660,38 L690,70 L672,70 L705,104 L680,104 L680,120Z"/>
+    <path d="M830,120 L830,98 L800,98 L835,58 L815,58 L850,16 L885,58 L865,58 L900,98 L870,98 L870,120Z"/>
+    <path d="M1030,120 L1030,104 L1005,104 L1038,70 L1020,70 L1050,36 L1080,70 L1062,70 L1095,104 L1070,104 L1070,120Z"/>
+    <path d="M1150,120 L1150,100 L1122,100 L1155,62 L1137,62 L1168,26 L1198,62 L1182,62 L1210,100 L1186,100 L1186,120Z"/>
+  </g>
+  <rect y="108" width="1200" height="12" fill="#e8eef5" opacity=".9"/>
+  <g>
+    <circle cx="58" cy="26" r="4" fill="#f5c542"/><circle cx="440" cy="20" r="4" fill="#f5c542"/><circle cx="850" cy="20" r="4" fill="#f5c542"/><circle cx="250" cy="40" r="3" fill="#f5c542"/><circle cx="660" cy="42" r="3" fill="#f5c542"/><circle cx="1050" cy="40" r="3" fill="#f5c542"/><circle cx="1168" cy="30" r="3" fill="#f5c542"/>
+    <circle cx="48" cy="70" r="3" fill="#ff3fb0"/><circle cx="70" cy="85" r="3" fill="#fff"/><circle cx="430" cy="68" r="3" fill="#ff3fb0"/><circle cx="455" cy="85" r="3" fill="#fff"/><circle cx="840" cy="68" r="3" fill="#ff3fb0"/><circle cx="868" cy="85" r="3" fill="#fff"/><circle cx="240" cy="82" r="3" fill="#ff3fb0"/><circle cx="650" cy="82" r="3" fill="#ff3fb0"/><circle cx="1040" cy="82" r="3" fill="#ff3fb0"/>
+  </g>
+</svg>
+</div>
+
+<div id="modalHost"></div>
+
+<script>
+/* ============ CONFIGURACIÓN ============ */
+const API = 'https://script.google.com/macros/s/AKfycbwZyXM15HAlYoPVqb87htPXDTDTLMdFNq9F6ZREqKKt6_EeO46CkEMuz8yrgaRaFVgb/exec';   // URL de la implementación web de Apps Script (termina en /exec)
+let AGENTES = [];   // [{nombre, monto}] se carga desde el servidor
+const FECHA_SORTEO = '2026-12-24T18:00:00-03:00';  // se usa si el servidor no responde
+const NOMBRE_SORTEO = "Sorteo Navideño · Red Mayu";
+/* ======================================= */
+
+let CLAVE = '';           // clave de agentes
+let CLAVE_S = '';         // clave del sorteo (solo en memoria)
+let CFG = null;
+let submitEnCurso = false;
+let refrescoTimer = null;
+let ultimoResultado = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = n => Number(n).toLocaleString('es-AR');
+
+function toast(msg, err) {
+  const t = document.createElement('div');
+  t.className = 'toast' + (err ? ' err' : '');
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3500);
+}
+
+const SESION_MS = 72 * 3600 * 1000;   // la sesión de agentes se cierra tras 72 h SIN actividad
+function tocar() { try { localStorage.setItem('nv_t', String(Date.now())); } catch (e) {} }
+async function api(params, clave) {
+  const q = new URLSearchParams(params);
+  if (clave !== false) q.set('clave', clave || CLAVE);
+  q.set('_', Date.now());
+  if (CLAVE) tocar();
+  const r = await fetch(API + '?' + q.toString());
+  const j = await r.json();
+  return j;
+}
+
+let fin = new Date(FECHA_SORTEO).getTime();
+const p2 = n => String(n).padStart(2, '0');
+const n4 = n => String(n).padStart(4, '0');   // los números se muestran siempre con 4 dígitos mínimo (0001)
+function tick() {
+  const d = fin - Date.now();
+  if (d <= 0) {
+    $('cdTitulo').textContent = '🎉 ¡Llegó el momento del sorteo!';
+    $('cd').innerHTML = '<div class="done" style="grid-column:1/-1">🎄 ¡Feliz Navidad! 🎄</div>';
+    $('when').classList.add('hidden');
+    clearInterval(tm); return;
+  }
+  const s = Math.floor(d / 1000);
+  $('cdD').textContent = p2(Math.floor(s / 86400));
+  $('cdH').textContent = p2(Math.floor(s % 86400 / 3600));
+  $('cdM').textContent = p2(Math.floor(s % 3600 / 60));
+  $('cdS').textContent = p2(s % 60);
+}
+tick(); const tm = setInterval(tick, 1000);
+
+
+/* el monto se agranda hasta ocupar todo el ancho disponible del banner */
+function ajustarMonto() {
+  const b = document.querySelector('.amt b'), box = document.querySelector('.card.premios');
+  if (!b || !box) return;
+  const max = box.clientWidth - 24;
+  let sz = 60; b.style.fontSize = sz + 'px';
+  for (let i = 0; i < 14; i++) {
+    const w = b.scrollWidth; if (!w) return;
+    const n = Math.max(40, Math.min(260, Math.floor(sz * max / w)));
+    if (Math.abs(n - sz) < 1) break; sz = n; b.style.fontSize = sz + 'px';
+  }
+}
+ajustarMonto(); addEventListener('resize', ajustarMonto);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarMonto);
+setTimeout(ajustarMonto, 1200);
+
+
+/* ---------- login ---------- */
+function mostrarLogin(msg) {
+  $('app').classList.add('hidden');
+  $('login').classList.remove('hidden');
+  $('loginMsg').textContent = msg || '';
+}
+async function entrar(clave) {
+  $('btnLogin').disabled = true;
+  try {
+    const r = await api({ action: 'recent' }, clave);
+    if (r && r.error === 'clave') { mostrarLogin('Clave incorrecta'); try { localStorage.removeItem('nv_clave'); localStorage.removeItem('nv_t'); } catch (e) {} return; }
+    if (r && r.error) { mostrarLogin(r.error); return; }
+    CLAVE = clave;
+    try { localStorage.setItem('nv_clave', clave); } catch (e) {}
+    tocar();
+    $('login').classList.add('hidden');
+    $('app').classList.remove('hidden');
+    iniciar();
+  } catch (e) {
+    mostrarLogin('No se pudo conectar. Revisá tu internet.');
+  } finally { $('btnLogin').disabled = false; }
+}
+$('btnLogin').onclick = () => { const v = $('claveIn').value.trim(); if (v) entrar(v); };
+$('claveIn').addEventListener('keydown', e => { if (e.key === 'Enter') $('btnLogin').click(); });
+
+/* ---------- inicio ---------- */
+async function iniciar() {
+  cargarAgentes();
+  try { CFG = await api({ action: 'config' }, false); } catch (e) { CFG = null; }
+  if (CFG && CFG.fechaSorteo) { fin = new Date(CFG.fechaSorteo).getTime(); tick(); }
+  if (CFG && CFG.cerrado) {
+    $('subtitulo').textContent = 'Registro cerrado · ya no se pueden cargar números';
+    $('btnAdd').disabled = true;
+  }
+  cargarStats();
+  clearInterval(refrescoTimer);
+  refrescoTimer = setInterval(() => {
+    if (document.hidden) return;
+    cargarStats();
+    if (!$('t-lista').classList.contains('hidden')) cargarLista();
+  }, 25000);
+}
+async function cargarStats() {
+  try {
+    const s = await api({ action: 'stats' }, false);
+    if (s && s.total != null) { $('sTotal').textContent = fmt(s.total); $('sHoy').textContent = fmt(s.hoy); }
+  } catch (e) {}
+}
+
+/* ---------- pestañas ---------- */
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === b));
+  ['cargar', 'lista', 'buscar', 'sorteo'].forEach(t => $('t-' + t).classList.toggle('hidden', t !== b.dataset.t));
+  if (b.dataset.t === 'lista') cargarLista();
+});
+
+/* ---------- tarjetas ---------- */
+const ICON_SHARE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
+function tarjetaHTML(c, conShare, idx, hl) {
+  return '<div class="ticket-wrap"><div class="ticket"><div class="nm">' + esc(c.usuario) + '<span class="us">@' + esc(c.nombre) + '</span></div>' +
+    '<div class="meta">' + esc(c.fecha) + ' · ' + esc(c.hora) + '</div>' +
+    '<div class="nums">' + c.numeros.map(n => '<span class="num' + (hl && String(n) === hl ? ' hit' : '') + '">' + n4(n) + '</span>').join('') + '</div></div>' +
+    (conShare ? '<button class="share" data-i="' + idx + '" title="Compartir" aria-label="Compartir">' + ICON_SHARE + '</button>' : '') + '</div>';
+}
+let listaActual = [];
+function pintarCompras(box, compras, hl) {
+  listaActual = compras;
+  if (!compras.length) { box.innerHTML = '<div class="empty">Sin resultados</div>'; return; }
+  box.innerHTML = compras.map((c, i) => tarjetaHTML(c, true, i, hl)).join('');
+  box.querySelectorAll('.share').forEach(b => b.onclick = () => compartir(listaActual[+b.dataset.i]));
+}
+
+async function cargarLista() {
+  try {
+    const r = await api({ action: 'recent', agente: AGENTE });
+    if (r && r.error) { $('listaBox').innerHTML = '<div class="empty">' + esc(r.error) + '</div>'; return; }
+    if (!r.length) { $('listaBox').innerHTML = '<div class="empty">Todavía no hay cargas</div>'; return; }
+    pintarCompras($('listaBox'), r);
+  } catch (e) { $('listaBox').innerHTML = '<div class="empty">No se pudo cargar</div>'; }
+}
+/* ---------- buscar ---------- */
+$('btnBuscar').onclick = async () => {
+  const q = $('qIn').value.trim();
+  if (!q) return;
+  $('buscarBox').innerHTML = '<div class="empty">Buscando…</div>';
+  try {
+    const r = await api({ action: 'search', q });
+    if (r && r.error) { $('buscarBox').innerHTML = '<div class="empty">' + esc(r.error) + '</div>'; return; }
+    const solo = q.replace(/[.\s]/g, '');
+    pintarCompras($('buscarBox'), r, /^\d+$/.test(solo) ? String(parseInt(solo, 10)) : '');
+  } catch (e) { $('buscarBox').innerHTML = '<div class="empty">No se pudo buscar</div>'; }
+};
+$('qIn').addEventListener('keydown', e => { if (e.key === 'Enter') $('btnBuscar').click(); });
+
+/* ---------- cargar ticket ---------- */
+let AGENTE = '';   // agente de este dispositivo (se recuerda)
+function agenteSel() { return AGENTES.find(a => a.nombre === AGENTE) || null; }
+function pintarAgente() { $('agNombre').textContent = AGENTE || '–'; $('fMonto').dispatchEvent(new Event('input')); }
+function elegirAgente(obligatorio) {
+  const h = $('modalHost');
+  h.innerHTML = '<div class="modal"><div class="mbox"><div class="pr">¿Qué agente sos?</div><div class="un" style="margin:6px 0 4px;font-family:inherit">Elegí tu nombre para cargar y ver tus números</div>' +
+    AGENTES.map((a, i) => '<button class="agopt" data-i="' + i + '">' + esc(a.nombre) + '<small>' + (a.monto ? (a.fijo ? a.numeros + (a.numeros === 1 ? ' número' : ' números') + ' por carga · mínimo $' + fmt(a.monto) : '1 número cada $' + fmt(a.monto)) : 'regla por definir') + '</small></button>').join('') +
+    (obligatorio ? '' : '<button class="btn sec" id="agCancel">CANCELAR</button>') + '</div></div>';
+  h.querySelectorAll('.agopt').forEach(b => b.onclick = () => {
+    AGENTE = AGENTES[+b.dataset.i].nombre;
+    try { localStorage.setItem('nv_agente', AGENTE); } catch (e) {}
+    h.innerHTML = ''; pintarAgente(); cargarLista(); $('resultado').innerHTML = '';
+  });
+  const c = $('agCancel'); if (c) c.onclick = () => { h.innerHTML = ''; };
+}
+$('btnCambiarAg').onclick = () => elegirAgente(false);
+async function cargarAgentes() {
+  try {
+    const r = await api({ action: 'agentes' });
+    if (!Array.isArray(r) || !r.length) { toast('No se pudieron cargar los agentes. Recargá la página.', true); return; }
+    AGENTES = r;
+    let g = ''; try { g = localStorage.getItem('nv_agente') || ''; } catch (e) {}
+    if (AGENTES.some(a => a.nombre === g)) { AGENTE = g; pintarAgente(); cargarLista(); }
+    else elegirAgente(true);
+  } catch (e) { toast('Sin conexión. Recargá la página.', true); }
+}
+$('fMonto').addEventListener('input', () => {
+  const m = parseInt($('fMonto').value.replace(/\D/g, ''), 10) || 0;
+  const ag = agenteSel();
+  if (!ag) { $('hintMonto').textContent = ''; return; }
+  if (!ag.monto) { $('hintMonto').textContent = ag.nombre + ' todavía no tiene definido cuánto vale cada número'; return; }
+  const n = ag.fijo ? (m >= ag.monto ? ag.numeros : 0) : Math.floor(m / ag.monto);
+  $('hintMonto').textContent = m ? (n >= 1 ? '→ le corresponden ' + n + (n === 1 ? ' número' : ' números') : 'Con ' + ag.nombre + ' el mínimo es $' + fmt(ag.monto) + ' para recibir un número') : '';
+});
+
+/* ---------- autocompletar usuario (desde 2 letras) ---------- */
+let usuariosLocal = [];
+try { usuariosLocal = JSON.parse(localStorage.getItem('nv_usuarios') || '[]'); } catch (e) {}
+function recordarUsuario(u) {
+  usuariosLocal = [u].concat(usuariosLocal.filter(x => x.toLowerCase() !== u.toLowerCase())).slice(0, 300);
+  try { localStorage.setItem('nv_usuarios', JSON.stringify(usuariosLocal)); } catch (e) {}
+}
+let acTimer = null, acSeq = 0;
+function pintarSugerencias(list) {
+  const box = $('acBox');
+  if (!list.length) { box.classList.add('hidden'); box.innerHTML = ''; return; }
+  box.innerHTML = list.map(u => '<button type="button">' + esc(u) + '</button>').join('');
+  box.classList.remove('hidden');
+  box.querySelectorAll('button').forEach(b => b.onmousedown = b.ontouchstart = e => {
+    e.preventDefault(); $('fUsuario').value = b.textContent; box.classList.add('hidden'); $('fMonto').focus();
+  });
+}
+$('fUsuario').addEventListener('input', () => {
+  const q = $('fUsuario').value.trim(), ql = q.toLowerCase();
+  clearTimeout(acTimer); const my = ++acSeq;
+  if (q.length < 2) { pintarSugerencias([]); return; }
+  const local = usuariosLocal.filter(u => u.toLowerCase().includes(ql) && u.toLowerCase() !== ql).slice(0, 5);
+  pintarSugerencias(local);
+  acTimer = setTimeout(async () => {
+    try {
+      const r = await api({ action: 'usuarios', q });
+      if (my !== acSeq || !Array.isArray(r)) return;
+      const vistos = {}, todos = [];
+      local.concat(r).forEach(u => { const k = u.toLowerCase(); if (!vistos[k] && k !== ql) { vistos[k] = 1; todos.push(u); } });
+      pintarSugerencias(todos.slice(0, 8));
+    } catch (e) {}
+  }, 250);
+});
+$('fUsuario').addEventListener('blur', () => setTimeout(() => $('acBox').classList.add('hidden'), 200));
+
+$('btnAdd').onclick = async () => {
+  if (submitEnCurso) return;
+  const ag = agenteSel(), usuario = $('fUsuario').value.trim();
+  const monto = parseInt($('fMonto').value.replace(/\D/g, ''), 10) || 0;
+  if (!usuario) return toast('Completá el usuario', true);
+  if (!ag) return toast('Elegí un agente', true);
+  if (!ag.monto) return toast(ag.nombre + ' todavía no tiene definido cuánto vale cada número', true);
+  const n = ag.fijo ? (monto >= ag.monto ? ag.numeros : 0) : Math.floor(monto / ag.monto);
+  if (n < 1) return toast('Con ' + ag.nombre + ' el monto mínimo es $' + fmt(ag.monto), true);
+  if (!ridActual) ridActual = nuevoRid();   // si hay reintento tras un error de red, se reusa y no duplica
+  submitEnCurso = true;
+  const btn = $('btnAdd');
+  btn.disabled = true; btn.textContent = 'GENERANDO…';
+  try {
+    const r = await api({ action: 'add', agente: ag.nombre, usuario, monto, rid: ridActual });
+    if (r.error) { toast(r.error, true); if (r.error === 'clave') mostrarLogin('Clave incorrecta'); return; }
+    ridActual = null;
+    ultimoResultado = r;
+    $('resultado').innerHTML = tarjetaHTML(r, true, 0);
+    $('resultado').querySelector('.share').onclick = () => compartir(ultimoResultado);
+    recordarUsuario(usuario); $('fUsuario').value = ''; $('fMonto').value = ''; $('hintMonto').textContent = '';
+    cargarStats();
+    toast('✅ Ticket generado: ' + r.numeros.length + (r.numeros.length === 1 ? ' número' : ' números'));
+  } catch (e) {
+    toast('Sin conexión. Tocá de nuevo para reintentar (no se duplica).', true);
+  } finally {
+    submitEnCurso = false;
+    btn.textContent = 'GENERAR TICKET';
+    btn.disabled = !!(CFG && CFG.cerrado);
+  }
+};
+
+/* ---------- compartir como PNG ---------- */
+function rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+function fitText(ctx, text, maxW, size, weight, family) {
+  let s = size;
+  do { ctx.font = weight + ' ' + s + 'px ' + family; s -= 2; } while (ctx.measureText(text).width > maxW && s > 18);
+}
+function dibujarTicket(c) {
+  const nums = c.numeros, n = nums.length, PAD = 36;
+  const SANS = 'Inter, Arial, sans-serif', MONO = '"Space Mono", monospace';
+  const m = document.createElement('canvas').getContext('2d');
+  // chips uniformes
+  const CH = 44, GAP = 8, CF = 26;
+  m.font = '700 ' + CF + 'px ' + MONO;
+  const CW = Math.ceil(m.measureText('0000').width) + 26;      // cuadradito de tamaño fijo (4 dígitos)
+  const maxDig = Math.max.apply(null, nums.map(v => n4(v).length));
+  const CFN = maxDig <= 4 ? CF : Math.floor(CF * 4 / maxDig) + (maxDig === 5 ? 1 : 0);   // 5+ dígitos: letra apenas más chica, mismo cuadradito
+  const VGAP = 6;                                              // separación vertical mínima entre filas
+  // filas: hasta 3, lo más angosto posible
+  const PER = 7;                                  // siempre hasta 7 por fila
+  const filas = []; for (let i = 0; i < n; i += PER) filas.push(nums.slice(i, i + PER));
+  const W = PER * CW + (PER - 1) * GAP + PAD * 2;  // ANCHO FIJO para todos los tickets
+  const maxW = W - PAD * 2;
+
+  // nombre grande: una línea o, si es muy largo, dos
+  const nombre = String(c.usuario);   // grande y blanco: el usuario
+  let sz = 60; m.font = '800 ' + sz + 'px ' + SANS;
+  while (m.measureText(nombre).width > maxW && sz > 38) { sz -= 2; m.font = '800 ' + sz + 'px ' + SANS; }
+  let lineas = [nombre];
+  if (m.measureText(nombre).width > maxW) {
+    const p = nombre.split(' '); let best = null;
+    for (let i = 1; i < p.length; i++) { const a = p.slice(0, i).join(' '), b = p.slice(i).join(' '); const d = Math.abs(a.length - b.length); if (!best || d < best.d) best = { a, b, d }; }
+    if (best) lineas = [best.a, best.b];
+    sz = 56; m.font = '800 ' + sz + 'px ' + SANS;
+    while (lineas.some(t => m.measureText(t).width > maxW) && sz > 26) { sz -= 2; m.font = '800 ' + sz + 'px ' + SANS; }
+  }
+  const usz = Math.max(18, Math.round(sz / 3.4));          // usuario: ~3 a 4 veces más chico que el nombre
+  const pie1 = "RED MAYU · SORTEO NAVIDEÑO", dd = new Date(FECHA_SORTEO), tz = { timeZone: 'America/Argentina/Buenos_Aires' };
+  const fecha = dd.toLocaleDateString('es-AR', Object.assign({ day: 'numeric', month: 'long' }, tz)) + ' · ' + dd.toLocaleTimeString('es-AR', Object.assign({ hour: '2-digit', minute: '2-digit', hour12: false }, tz)) + ' hs';
+  m.font = '700 17px ' + SANS;
+  const pieUna = m.measureText(pie1 + ' · Sorteo: ' + fecha).width <= maxW;
+  const H = 28 + lineas.length * (sz + 4) + 10 + usz + 14 + filas.length * (CH + VGAP) - VGAP + 16 + (pieUna ? 46 : 68);
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const ctx = cv.getContext('2d');
+
+  let g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#2a0840'); g.addColorStop(1, '#0a0a0a');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  for (let i = 0; i < 26; i++) { ctx.fillStyle = 'rgba(255,255,255,' + (0.16 + (i % 4) * 0.1) + ')'; ctx.beginPath(); ctx.arc((i * 277 + 30) % W, (i * 131 + 20) % H, 1.3 + (i % 3), 0, 7); ctx.fill(); }
+  ctx.lineWidth = 5; ctx.strokeStyle = '#D61F8F'; ctx.beginPath(); ctx.roundRect(2.5, 2.5, W - 5, H - 5, 24); ctx.stroke();
+  const cols = ['#ff3fb0', '#ffd24d', '#F5C542', '#ffffff'];
+  const nl = Math.max(8, Math.round(W / 70));
+  for (let i = 0; i < nl; i++) { const x = 34 + i * ((W - 68) / (nl - 1)); ctx.fillStyle = cols[i % 4]; ctx.beginPath(); ctx.arc(x, 18, 5, 0, 7); ctx.fill(); }
+
+  ctx.textAlign = 'center'; let y = 28;
+  // nombre del cliente: grande y blanco
+  ctx.fillStyle = '#fff'; ctx.font = '800 ' + sz + 'px ' + SANS;
+  lineas.forEach(t => { y += sz; ctx.fillText(t, W / 2, y - 4); y += 4; });
+  // usuario: chico y rojo, justo arriba de los números
+  y += 10 + usz;
+  const cuando = '  ·  ' + c.fecha + '  ' + String(c.hora).slice(0, 5);
+  let fz = usz, ut = '@' + c.nombre, wU, wC;
+  const medir = () => { ctx.font = '700 ' + fz + 'px ' + MONO; wU = ctx.measureText(ut).width; wC = ctx.measureText(cuando).width; };
+  medir();
+  while (wU + wC > maxW && fz > 15) { fz -= 1; medir(); }
+  while (wU + wC > maxW && ut.length > 6) { ut = ut.slice(0, -2) + '…'; medir(); }
+  const x0 = (W - (wU + wC)) / 2;
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#FF6AC8'; ctx.fillText(ut, x0, y - 3);          // usuario en rojo
+  ctx.fillStyle = '#e8e8e8'; ctx.fillText(cuando, x0 + wU, y - 3);  // fecha y hora al lado
+  ctx.textAlign = 'center';
+  y += 10;
+  // números
+  filas.forEach(f => {
+    const tot = f.length * CW + (f.length - 1) * GAP; let x = (W - tot) / 2;
+    f.forEach(v => {
+      const bg = ctx.createLinearGradient(0, y, 0, y + CH); bg.addColorStop(0, '#ff3fb0'); bg.addColorStop(1, '#a3106b');
+      ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(x, y, CW, CH, 10); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,.2)'; ctx.beginPath(); ctx.roundRect(x + 3, y + 3, CW - 6, CH / 2 - 3, 8); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = '700 ' + CFN + 'px ' + MONO; ctx.textBaseline = 'middle'; ctx.fillText(n4(v), x + CW / 2, y + CH / 2 + 2); ctx.textBaseline = 'alphabetic';
+      x += CW + GAP;
+    });
+    y += CH + VGAP;
+  });
+  y -= VGAP;
+  // pie chico, blanco
+  y += 16; ctx.strokeStyle = 'rgba(255,255,255,.25)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+  ctx.fillStyle = '#fff';
+  if (pieUna) { ctx.font = '700 17px ' + SANS; ctx.fillText(pie1 + ' · Sorteo: ' + fecha, W / 2, y + 30); }
+  else { ctx.font = '800 18px ' + SANS; ctx.fillText(pie1, W / 2, y + 28); ctx.font = '600 17px ' + SANS; ctx.fillText('Sorteo: ' + fecha, W / 2, y + 52); }
+  return cv;
+}
+async function compartir(c) {
+  try {
+    if (document.fonts && document.fonts.load) { try { await Promise.all([document.fonts.load('700 100px "Mountains of Christmas"'), document.fonts.load('700 40px "Space Mono"'), document.fonts.load('800 30px Inter')]); } catch (e) {} }
+    const cv = dibujarTicket(c);
+    const blob = await new Promise(res => cv.toBlob(res, 'image/png'));
+    const file = new File([blob], 'ticket-' + c.numeros[0] + '.png', { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: NOMBRE_SORTEO, text: '🎄 Tus números del sorteo: ' + c.numeros.map(n4).join(', ') });
+    } else {
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name;
+      document.body.appendChild(a); a.click(); a.remove();
+      toast('Tu navegador no permite compartir directo: se descargó la imagen');
+    }
+  } catch (e) {
+    if (e && e.name === 'AbortError') return;
+    toast('No se pudo compartir', true);
+  }
+}
+
+/* ---------- sorteo ---------- */
+let ganadores = [];
+$('btnSorteoEntrar').onclick = async () => {
+  const v = $('claveSorteoIn').value.trim();
+  if (!v) return;
+  $('btnSorteoEntrar').disabled = true;
+  try {
+    const r = await api({ action: 'ganadores' }, v);
+    if (r.error) { $('sorteoMsg').textContent = r.error === 'clave' ? 'Clave incorrecta' : r.error; return; }
+    CLAVE_S = v;
+    $('sorteoLock').classList.add('hidden');
+    $('sorteoPanel').classList.remove('hidden');
+    pintarGanadores(r);
+  } catch (e) { $('sorteoMsg').textContent = 'No se pudo conectar'; }
+  finally { $('btnSorteoEntrar').disabled = false; }
+};
+function pintarGanadores(r) {
+  ganadores = r.lista || [];
+  $('winList').innerHTML = ganadores.length ? ganadores.map(g =>
+    '<div class="win' + (g.tipo === 'suplente' ? ' sup' : '') + '"><span><b>' + esc(g.premio) + '</b><br>' + esc(g.usuario) + ' · @' + esc(g.nombre) + '</span><b>#' + n4(g.numero) + '</b></div>').join('') : '<div class="empty">Todavía no se sorteó nada</div>';
+  const total = ((CFG && CFG.premios) ? CFG.premios.length : 3) + ((CFG && CFG.suplentes) || 0);
+  $('btnSortear').disabled = ganadores.length >= total;
+  $('btnSortear').textContent = ganadores.length >= total ? 'SORTEO COMPLETO' : (ganadores.length < ((CFG && CFG.premios) ? CFG.premios.length : 3) ? 'SORTEAR ' + (CFG && CFG.premios ? CFG.premios[ganadores.length].toUpperCase() : 'PREMIO') : 'SORTEAR SUPLENTE');
+  $('pubEstado').textContent = r.publicado ? '✅ Los ganadores ya están visibles en la web pública' : 'Los ganadores todavía NO se muestran en la web pública';
+  $('btnPublicar').textContent = r.publicado ? '🙈 Ocultar ganadores de la web' : '📢 Publicar ganadores en la web';
+  $('btnPublicar').dataset.pub = r.publicado ? '1' : '0';
+}
+function modal(html) {
+  const h = $('modalHost');
+  h.innerHTML = '<div class="modal"><div class="mbox">' + html + '<button class="btn" id="mCerrar">CONTINUAR</button></div></div>';
+  $('mCerrar').onclick = () => { h.innerHTML = ''; };
+}
+let sorteando = false;
+$('btnSortear').onclick = async () => {
+  if (sorteando) return;
+  const orden = ganadores.length + 1;
+  sorteando = true; $('btnSortear').disabled = true;
+  try {
+    const g = await api({ action: 'sortear', orden }, CLAVE_S);
+    if (g.error) { toast(g.error, true); return; }
+    modal('<div class="pr">' + esc(g.premio) + '</div><div class="big">#' + n4(g.numero) + '</div><div class="who">' + esc(g.usuario) + '</div><div class="un">@' + esc(g.nombre) + '</div>');
+    const r = await api({ action: 'ganadores' }, CLAVE_S);
+    if (!r.error) pintarGanadores(r);
+  } catch (e) { toast('Error de conexión, reintentá', true); }
+  finally { sorteando = false; if (ganadores.length) $('btnSortear').disabled = $('btnSortear').textContent === 'SORTEO COMPLETO'; else $('btnSortear').disabled = false; }
+};
+$('btnPublicar').onclick = async () => {
+  const quiere = $('btnPublicar').dataset.pub === '1' ? '0' : '1';
+  if (quiere === '1' && !confirm('¿Publicar los ganadores en la página pública?')) return;
+  try {
+    await api({ action: 'publicar', valor: quiere }, CLAVE_S);
+    const r = await api({ action: 'ganadores' }, CLAVE_S);
+    if (!r.error) pintarGanadores(r);
+  } catch (e) { toast('No se pudo cambiar', true); }
+};
+
+
+/* nieve liviana: pocos copos, 30 cuadros por segundo, se detiene si la pestaña está oculta */
+(function () {
+  const cv = $('snow'), ctx = cv.getContext('2d'); let W, H, fl = [], last = 0;
+  function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
+  size(); addEventListener('resize', size);
+  const n = innerWidth < 600 ? 38 : 70;
+  for (let i = 0; i < n; i++) fl.push({ x: Math.random() * 2000, y: Math.random() * 1200, r: 1 + Math.random() * 2.8, s: .5 + Math.random() * 1.1, d: Math.random() * 6 });
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  (function loop(t) {
+    requestAnimationFrame(loop);
+    if (t - last < 33) return; last = t;
+    ctx.clearRect(0, 0, W, H); ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.beginPath();
+    fl.forEach(f => { f.y += f.s; f.d += .02; f.x += Math.sin(f.d) * .7; if (f.y > H + 6) { f.y = -6; f.x = Math.random() * W; }
+      const x = ((f.x % W) + W) % W; ctx.moveTo(x + f.r, f.y); ctx.arc(x, f.y, f.r, 0, 7); });
+    ctx.fill();
+  })(0);
+})();
+(function () { let h = ''; const n = innerWidth < 500 ? 12 : 22; for (let i = 0; i < n; i++) h += '<i></i>'; $('bulbs').innerHTML = h; })();
+
+/* ---------- cerrar sesión / panel ---------- */
+$('btnSalir').onclick = () => {
+  if (!confirm('¿Cerrar la sesión en este dispositivo? Va a pedir la clave de nuevo.')) return;
+  try { localStorage.removeItem('nv_clave'); localStorage.removeItem('nv_t'); localStorage.removeItem('nv_agente'); } catch (e) {}
+  location.reload();
+};
+$('btnSalirAdmin').onclick = () => {
+  CLAVE_S = '';
+  $('claveSorteoIn').value = '';
+  $('sorteoPanel').classList.add('hidden');
+  $('sorteoLock').classList.remove('hidden');
+  $('sorteoMsg').textContent = '';
+};
+
+/* ---------- arranque ---------- */
+(function () {
+  let g = '';
+  try {
+    g = localStorage.getItem('nv_clave') || '';
+    const t = Number(localStorage.getItem('nv_t')) || 0;
+    if (g && (!t || Date.now() - t > SESION_MS)) { g = ''; localStorage.removeItem('nv_clave'); localStorage.removeItem('nv_t'); }
+  } catch (e) {}
+  if (API.indexOf('PEGAR_AQUI') === 0) { mostrarLogin('Falta configurar la URL del script (API)'); return; }
+  if (g) entrar(g); else mostrarLogin('');
+})();
+</script>
+</body>
+</html>
