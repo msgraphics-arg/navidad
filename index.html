@@ -211,7 +211,7 @@ h2{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margi
     <div class="panel">
       <h2>Nueva carga</h2>
       <label>Nombre de usuario</label>
-      <div class="acwrap"><input id="fUsuario" autocomplete="off" autocapitalize="none" placeholder="Ej: mariaperez23"><div id="acBox" class="acbox hidden"></div></div>
+      <div class="acwrap"><input id="fUsuario" autocomplete="off" autocapitalize="none" placeholder="Ej: 58Pau (ID y nombre pegados)"><div id="acBox" class="acbox hidden"></div></div>
       <div class="agchip"><span>Cargando como <b id="agNombre">–</b></span><button type="button" id="btnCambiarAg">CAMBIAR</button></div>
       <label>Monto de la carga ($)</label>
       <input id="fMonto" inputmode="numeric" autocomplete="off" placeholder="Ej: 12000">
@@ -434,12 +434,22 @@ function pintarCompras(box, compras, hl) {
   box.querySelectorAll('.share').forEach(b => b.onclick = () => compartir(listaActual[+b.dataset.i]));
 }
 
+let LISTA_N = 20;   // se muestran de a 20 y se puede ir pidiendo de a 20 más, hasta 100
 async function cargarLista() {
   try {
-    const r = await api({ action: 'recent', agente: AGENTE });
+    const r = await api({ action: 'recent', agente: AGENTE, n: LISTA_N });
     if (r && r.error) { $('listaBox').innerHTML = '<div class="empty">' + esc(r.error) + '</div>'; return; }
     if (!r.length) { $('listaBox').innerHTML = '<div class="empty">Todavía no hay cargas</div>'; return; }
     pintarCompras($('listaBox'), r);
+    if (r.length >= LISTA_N && LISTA_N < 100) {
+      const b = document.createElement('button');
+      b.className = 'btn sec'; b.style.marginTop = '12px'; b.textContent = 'VER 20 MÁS';
+      b.onclick = () => { LISTA_N = Math.min(100, LISTA_N + 20); b.disabled = true; b.textContent = 'CARGANDO…'; cargarLista(); };
+      $('listaBox').appendChild(b);
+    } else if (LISTA_N >= 100 && r.length >= 100) {
+      const d = document.createElement('div'); d.className = 'empty'; d.textContent = 'Se muestran tus últimas 100 cargas. Para ver una más vieja, usá BUSCAR.';
+      $('listaBox').appendChild(d);
+    }
   } catch (e) { $('listaBox').innerHTML = '<div class="empty">No se pudo cargar</div>'; }
 }
 /* ---------- buscar ---------- */
@@ -496,7 +506,7 @@ function elegirAgente(obligatorio) {
   h.querySelectorAll('.agopt').forEach(b => b.onclick = () => {
     AGENTE = AGENTES[+b.dataset.i].nombre;
     try { localStorage.setItem('nv_agente', AGENTE); } catch (e) {}
-    h.innerHTML = ''; pintarAgente(); cargarLista(); $('resultado').innerHTML = '';
+    h.innerHTML = ''; LISTA_N = 20; pintarAgente(); cargarLista(); $('resultado').innerHTML = '';
   });
   const c = $('agCancel'); if (c) c.onclick = () => { h.innerHTML = ''; };
 }
@@ -540,6 +550,7 @@ function pintarSugerencias(list) {
   });
 }
 $('fUsuario').addEventListener('input', () => {
+  const _u = $('fUsuario'); if (/\s/.test(_u.value)) _u.value = _u.value.replace(/\s+/g, '');   // sin espacios: 58Pau
   const q = $('fUsuario').value.trim(), ql = q.toLowerCase();
   clearTimeout(acTimer); const my = ++acSeq;
   if (q.length < 2) { pintarSugerencias([]); return; }
