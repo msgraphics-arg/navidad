@@ -87,7 +87,9 @@ button:disabled{opacity:.5}
 .compra{background:#150626;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:12px;padding:11px;margin-bottom:8px}
 .compra small{color:var(--gray);font-size:12px}
 .nums{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
-.n{background:radial-gradient(circle at 30% 25%,#ff5a6e,#c40e27 60%,#8f0a1c);font-family:'Space Mono',monospace;font-weight:700;padding:6px 11px;border-radius:50px;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+.n.ext{background:linear-gradient(180deg,#FFE680,#F5B800)!important;color:#3b0a52;box-shadow:0 0 12px rgba(255,216,77,.8)}
+.leyenda{font-size:12px;color:#FFD84D;text-align:center;margin-top:10px}
+.n{background:radial-gradient(circle at 30% 25%,#ff8fdc,#ff3fb0 55%,#b0126f);color:#fff;text-shadow:0 1px 3px rgba(80,0,50,.7);font-family:'Space Mono',monospace;font-weight:700;padding:6px 11px;border-radius:50px;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.5)}
 .win{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;border-bottom:1px solid var(--line)}
 .win:last-child{border:0}
 .win .p{color:var(--gold);font-weight:800}
@@ -280,7 +282,7 @@ async function buscar() {
     if (!r.total) { $('msg').textContent = 'No encontramos números para ese usuario. Revisá que esté escrito exactamente igual.'; return; }
     $('msg').textContent = '';
     $('res').innerHTML = '<div class="tot"><span>' + r.total + '</span> ' + (r.total === 1 ? 'número' : 'números') + ' para @' + esc(r.usuario) + '</div>' +
-      r.compras.map(c => '<div class="compra"><small>' + esc(c.fecha) + ' · ' + esc(c.hora) + '</small><div class="nums">' + c.numeros.map(n => '<span class="n">' + n4(n) + '</span>').join('') + '</div></div>').join('');
+      (r.compras.some(c => (c.extras || []).length) ? '<div class="leyenda">⭐ Los números dorados son regalos extra</div>' : '') + r.compras.map(c => '<div class="compra"><small>' + esc(c.fecha) + ' · ' + esc(c.hora) + '</small><div class="nums">' + c.numeros.map(n => '<span class="n' + ((c.extras || []).indexOf(n) >= 0 ? ' ext' : '') + '">' + n4(n) + '</span>').join('') + '</div></div>').join('');
   } catch (e) { $('msg').textContent = 'No se pudo conectar. Probá de nuevo en unos segundos.'; }
   finally { buscando = false; $('b').disabled = false; }
 }
